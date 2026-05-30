@@ -6,9 +6,9 @@
     "CLOCK_PERIOD": 100,
     "CLOCK_PORT": "clk",
     "CLOCK_NET": "clk",
-    "FP_CORE_UTIL": 30,
-    "PL_TARGET_DENSITY": 0.3,
-    "FP_PDN_VPITCH": 38.87,
-    "FP_PDN_HPITCH": 38.87,
+    "FP_CORE_UTIL": 45,
+    "PL_TARGET_DENSITY": 0.45,
+    "FP_PDN_VPITCH": 25,
+    "FP_PDN_HPITCH": 25,
     "MAGIC_GENERATE_GDS": true
 }
