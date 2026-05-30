@@ -17,6 +17,8 @@ module tt_um_nlfsr_pqc (
     // Use only the bits we need to stop the warnings
     wire load_en = uio_in[0];
     wire run_en  = uio_in[1];
+    // Tie unused inputs to a dummy wire to satisfy the linter
+    wire _unused_ok = &{uio_in[7:2]};
 
     always @(posedge clk) begin
         if (!rst_n) begin
