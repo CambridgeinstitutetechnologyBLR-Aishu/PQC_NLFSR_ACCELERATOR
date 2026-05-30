@@ -1,6 +1,6 @@
 `default_nettype none
 
-module tt_um_nlfsr_pqc (
+module tt_um_pqc_nlfsr_final (
     input  wire [7:0] ui_in,    // Seed Input
     output wire [7:0] uo_out,   // State Output
     input  wire [7:0] uio_in,   // uio[0]: Load, uio[1]: Enable
