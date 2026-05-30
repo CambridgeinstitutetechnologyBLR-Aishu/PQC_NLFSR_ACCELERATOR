@@ -22,9 +22,10 @@ module tt_um_nlfsr_pqc (
         if (!rst_n) begin
             lfsr <= 8'h01; 
         end else if (ena) begin
-            if (load_en)
+            // Explicitly use only bits [1:0] to satisfy the linter
+            if (uio_in[0]) 
                 lfsr <= (ui_in == 8'h00) ? 8'h01 : ui_in;
-            else if (run_en)
+            else if (uio_in[1]) 
                 lfsr <= {lfsr[6:0], feedback};
         end
     end
