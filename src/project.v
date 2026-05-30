@@ -12,19 +12,20 @@ module tt_um_nlfsr_pqc (
 );
 
     reg [7:0] lfsr;
-    // Non-linear feedback logic for PQC
     wire feedback = lfsr[7] ^ lfsr[5] ^ lfsr[4] ^ (lfsr[1] & lfsr[0]);
+
+    // Use only the bits we need to stop the warnings
+    wire load_en = uio_in[0];
+    wire run_en  = uio_in[1];
 
     always @(posedge clk) begin
         if (!rst_n) begin
             lfsr <= 8'h01; 
         end else if (ena) begin
-            if (uio_in[0]) // Load seed
+            if (load_en)
                 lfsr <= (ui_in == 8'h00) ? 8'h01 : ui_in;
-            else if (uio_in[1]) // Run NLFSR
+            else if (run_en)
                 lfsr <= {lfsr[6:0], feedback};
-            else
-                lfsr <= lfsr; // Explicitly keep state if no uio_in active
         end
     end
 
