@@ -2,10 +2,6 @@ project:
   yaml_version: 1
   title:        "PQC NLFSR Accelerator"
   author:       "Aishu and Rishika"
-  description:  "8-bit NLFSR for PQC"
-  how_it_works: "Implements non-linear feedback logic for post-quantum security."
-  how_to_test:  "Load seed via ui_in and uio[0], then run using uio[1]."
-  language:     "Verilog"
   top_module:   "tt_um_nlfsr_pqc"
   tiles: "1x1"
   clock_hz: 10000000
