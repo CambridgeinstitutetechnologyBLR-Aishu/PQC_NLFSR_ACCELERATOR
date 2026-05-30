@@ -7,11 +7,12 @@
     "CLOCK_PORT": "clk",
     "CLOCK_NET": "clk",
     "RT_MAX_LAYER": "Metal4",
-    "FP_CORE_UTIL": 25,
-    "PL_TARGET_DENSITY": 0.25,
+    "FP_CORE_UTIL": 35,
+    "PL_TARGET_DENSITY": 0.35,
     "FP_PDN_VPITCH": 40,
     "FP_PDN_HPITCH": 40,
     "FP_IO_VEXTEND": 4,
     "FP_IO_HEXTEND": 4,
+    "PL_RE Rect_LHS": 0,
     "MAGIC_GENERATE_GDS": true
 }
