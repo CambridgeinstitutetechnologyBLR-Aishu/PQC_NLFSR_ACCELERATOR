@@ -19,10 +19,12 @@ module tt_um_nlfsr_pqc (
         if (!rst_n) begin
             lfsr <= 8'h01; 
         end else if (ena) begin
-            if (uio_in[0])
+            if (uio_in[0]) // Load seed
                 lfsr <= (ui_in == 8'h00) ? 8'h01 : ui_in;
-            else if (uio_in[1])
+            else if (uio_in[1]) // Run NLFSR
                 lfsr <= {lfsr[6:0], feedback};
+            else
+                lfsr <= lfsr; // Explicitly keep state if no uio_in active
         end
     end
 
