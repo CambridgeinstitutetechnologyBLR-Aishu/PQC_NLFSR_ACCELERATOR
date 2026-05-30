@@ -13,6 +13,8 @@ module tb ();
   reg ena;
   reg [7:0] ui_in;
   reg [7:0] uio_in;
+  
+  // These MUST be wires for the simulation to work
   wire [7:0] uo_out;
   wire [7:0] uio_out;
   wire [7:0] uio_oe;
