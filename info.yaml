@@ -1,8 +1,12 @@
 project:
-  yaml_version: 1
-  title:        "PQC NLFSR Accelerator"
+  title:        "PQC NLFSR"
   author:       "Aishu and Rishika"
+  description:  "8-bit NLFSR for PQC"
+  how_it_works: "Non-linear feedback using AND logic"
+  how_to_test:  "Set uio[0] to load and uio[1] to run"
+  language:     "Verilog"
   top_module:   "tt_um_nlfsr_pqc"
+  yaml_version: 1
   tiles: "1x1"
   clock_hz: 10000000
   source_files:
