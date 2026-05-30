@@ -3,7 +3,7 @@ project:
   title:        "PQC NLFSR"
   author:       "Aishu and Rishika"
   description:  "8-bit NLFSR for PQC"
-  how_it_works: "Non-linear feedback shift register using AND-taps for complexity."
+  how_it_works: "Non-linear feedback logic using AND gates."
   how_to_test:  "Load seed via ui_in and uio[0], then run using uio[1]."
   language:     "Verilog"
   top_module:   "tt_um_nlfsr_pqc"
