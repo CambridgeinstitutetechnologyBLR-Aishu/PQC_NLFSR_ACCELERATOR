@@ -1,37 +1,13 @@
-yaml_version: 6
 project:
-  title:        "PQC NLFSR"
-  author:       "Aishu and Rishika"
-  description:  "8-bit NLFSR"
-  how_it_works: "Non-linear feedback shift register."
-  how_to_test:  "Load seed and run."
-  language:     "Verilog"
-  top_module:   "tt_um_nlfsr_pqc"
-  tiles: "1x1"
-  clock_hz: 10000000
-  source_files:
-    - "project.v"
+  title:        "Innovative Chaotic-Switching NLFSR"
+  description:  "A dual-feedback NLFSR with dynamic mode switching for enhanced cryptographic entropy."
+  # ... keep other fields ...
 
 pinout:
-  ui[0]: "ui0"
-  ui[1]: "ui1"
-  ui[2]: "ui2"
-  ui[3]: "ui3"
-  ui[4]: "ui4"
-  ui[5]: "ui5"
-  ui[6]: "ui6"
-  ui[7]: "ui7"
-  uo[0]: "uo0"
-  uo[1]: "uo1"
-  uo[2]: "uo2"
-  uo[3]: "uo3"
-  uo[4]: "uo4"
-  uo[5]: "uo5"
-  uo[6]: "uo6"
-  uo[7]: "uo7"
-  uio[0]: "uio0"
-  uio[1]: "uio1"
-  uio[2]: "uio2"
+  # ... ui and uo pins stay same ...
+  uio[0]: "load"
+  uio[1]: "enable"
+  uio[2]: "mode_select" # This is your innovation pin!
   uio[3]: "uio3"
   uio[4]: "uio4"
   uio[5]: "uio5"
