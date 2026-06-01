@@ -6,13 +6,10 @@
     "CLOCK_PERIOD": 100,
     "CLOCK_PORT": "clk",
     "CLOCK_NET": "clk",
-    "FP_CORE_UTIL": 25,
-    "PL_TARGET_DENSITY": 0.25,
-    "FP_PDN_VPITCH": 40,
-    "FP_PDN_HPITCH": 40,
-    "FP_IO_VEXTEND": 5,
-    "FP_IO_HEXTEND": 5,
-    "FP_IO_VLENGTH": 4,
-    "FP_IO_HLENGTH": 4,
+    "FP_CORE_UTIL": 20,
+    "PL_TARGET_DENSITY": 0.2,
+    "FP_SIZING": "absolute",
+    "DIE_AREA": "0 0 160 160",
+    "CORE_AREA": "10 10 150 150",
     "MAGIC_GENERATE_GDS": true
 }
