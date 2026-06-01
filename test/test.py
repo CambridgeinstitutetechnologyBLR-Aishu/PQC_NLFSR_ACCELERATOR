@@ -1,28 +1,15 @@
-import cocotb
-from cocotb.clock import Clock
-from cocotb.triggers import RisingEdge
+# Test Mode 0 (Standard)
+    dut.uio_in.value = 0x01 # Load
+    await RisingEdge(dut.clk)
+    dut.uio_in.value = 0x02 # Run Mode 0
+    await RisingEdge(dut.clk)
+    val0 = dut.uo_out.value
 
-@cocotb.test()
-async def test_nlfsr(dut):
-    dut._log.info("Starting PQC NLFSR Gate-Level Test")
-    clock = Clock(dut.clk, 10, units="us")
-    cocotb.start_soon(clock.start())
+    # Test Mode 1 (Chaotic Innovation)
+    dut.uio_in.value = 0x01 # Load
+    await RisingEdge(dut.clk)
+    dut.uio_in.value = 0x06 # Run Mode 1 (Bit 2 is high)
+    await RisingEdge(dut.clk)
+    val1 = dut.uo_out.value
 
-    # Reset
-    dut.rst_n.value = 0
-    await RisingEdge(dut.clk)
-    dut.rst_n.value = 1
-    dut.ena.value = 1
-
-    # Test shifting
-    dut.ui_in.value = 0xAB
-    dut.uio_in.value = 0x01 # Load seed
-    await RisingEdge(dut.clk)
-    
-    dut.uio_in.value = 0x02 # Run
-    await RisingEdge(dut.clk)
-    
-    # Gate level signals can be slow, wait a bit
-    await RisingEdge(dut.clk)
-    assert dut.uo_out.value != 0x00
-    dut._log.info("Gate-Level Simulation Passed!")
+    assert val0 != val1 # If they are different, your innovation works!
