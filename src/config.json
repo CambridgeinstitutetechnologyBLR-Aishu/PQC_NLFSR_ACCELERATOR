@@ -7,6 +7,7 @@
     "CLOCK_PORT": "clk",
     "CLOCK_NET": "clk",
     "FP_PIN_ORDER_CFG": "dir::pin_order.cfg",
+    "FP_IO_MODE": 0,
     "RT_MAX_LAYER": "Metal4",
     "FP_CORE_UTIL": 30,
     "PL_TARGET_DENSITY": 0.35,
@@ -14,7 +15,5 @@
     "FP_PDN_HPITCH": 40,
     "FP_PDN_VOFFSET": 10,
     "FP_PDN_HOFFSET": 10,
-    "FP_IO_VEXTEND": 4,
-    "FP_IO_HEXTEND": 4,
     "MAGIC_GENERATE_GDS": true
 }
