@@ -1,35 +1,19 @@
-`default_nettype none
+// Innovation: Dual-path Non-Linear Feedback
+    // Path A: Standard PQC NLFSR
+    // Path B: Chaotic feedback using XOR-AND logic
+    wire feedback_a = lfsr[7] ^ lfsr[5] ^ lfsr[4] ^ (lfsr[1] & lfsr[0]);
+    wire feedback_b = lfsr[7] ^ (lfsr[6] & lfsr[5]) ^ lfsr[3] ^ lfsr[2];
+    
+    // Switch between them using uio_in[2]
+    wire chosen_feedback = uio_in[2] ? feedback_b : feedback_a;
 
-module tt_um_nlfsr_pqc (
-    input  wire [7:0] ui_in,    
-    output wire [7:0] uo_out,   
-    input  wire [7:0] uio_in,   
-    output wire [7:0] uio_out,  
-    output wire [7:0] uio_oe,   
-    input  wire       ena,      
-    input  wire       clk,      
-    input  wire       rst_n     
-);
-
-    reg [7:0] lfsr;
-    wire feedback = lfsr[7] ^ lfsr[5] ^ lfsr[4] ^ (lfsr[1] & lfsr[0]);
-
-    // Internal Clock Buffer to stop "Outside Die Area" errors
-    wire internal_clk = clk;
-
-    always @(posedge internal_clk) begin
+    always @(posedge clk) begin
         if (!rst_n) begin
             lfsr <= 8'h01; 
         end else if (ena) begin
-            if (uio_in[0])
+            if (uio_in[0]) // Load
                 lfsr <= (ui_in == 8'h00) ? 8'h01 : ui_in;
-            else if (uio_in[1])
-                lfsr <= {lfsr[6:0], feedback};
+            else if (uio_in[1]) // Run
+                lfsr <= {lfsr[6:0], chosen_feedback};
         end
     end
-
-    assign uo_out = lfsr;
-    assign uio_out = 8'b0;
-    assign uio_oe  = 8'b0;
-
-endmodule
