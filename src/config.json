@@ -6,12 +6,11 @@
     "CLOCK_PERIOD": 100,
     "CLOCK_PORT": "clk",
     "CLOCK_NET": "clk",
+    "FP_CORE_UTIL": 40,
     "RT_MAX_LAYER": "Metal4",
-    "FP_CORE_UTIL": 20,
-    "PL_TARGET_DENSITY": 0.2,
-    "FP_PDN_VPITCH": 50,
-    "FP_PDN_HPITCH": 50,
-    "FP_IO_VEXTEND": 4,
-    "FP_IO_HEXTEND": 4,
+    "PL_TARGET_DENSITY": 0.45,
+    "FP_PDN_VPITCH": 25,
+    "FP_PDN_HPITCH": 25,
+    "FP_IO_MODE": 1,
     "MAGIC_GENERATE_GDS": true
 }
